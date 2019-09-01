@@ -1,0 +1,70 @@
+.my-account-content {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  min-height: 200px;
+  padding: 20px;
+}
+
+// Password
+.password-content {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  min-height: 100px;
+  padding: 20px;
+
+    
+  .btn{
+    @media(max-width: $MEDIA_IPAD){
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// Delete account
+.my-account-delete-account {
+  min-height: 100px;
+  h4 {
+    color: $COR_DANGER;
+    border-color: $COR_DANGER;
+  }
+}
+
+.webcam {
+  height: 300px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.input-photo {
+  background-color: $COR_PRINCIPAL;
+  border: 1px solid $COR_PRINCIPAL;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  margin-left:10px;
+  letter-spacing: 0.5px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  transition: all 400ms;
+  z-index: 9999 !important;
+
+  &:hover {
+    background: transparent;
+    color: #000000;
+  }
+
+  @media(max-width: $MEDIA_IPAD){
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
+}

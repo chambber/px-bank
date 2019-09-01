@@ -1,0 +1,166 @@
+.header {
+  background: #ffffff;
+  box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+// Logo
+.header-logo {
+  left: 50%;
+  max-width: 130px;
+  position: absolute;
+  top: 18px;
+  transform: translateX(-50%);
+
+  @media(max-width: $MEDIA_IPAD_PRO) {
+    display: none;
+  }
+}
+
+// Menu Button
+.header-menu-toggle {
+  color: #000000;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  left: 20px;
+  letter-spacing: 1px;
+  padding-left: 40px;
+  position: relative;
+  text-transform: uppercase;
+  top: 24px;
+  transition: all 400ms;
+
+  &:after {
+    background: $COR_SECUNDARIA;
+    box-shadow: 0 -8px 0 $COR_SECUNDARIA, 0 8px 0 $COR_SECUNDARIA;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 25px;
+  }
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+// Perfil
+.header-ferramentas {
+  color: #FFFFFF;
+  display: inline-block;
+  float: right;
+  padding: 23px;
+  vertical-align: middle;
+
+  @media (max-width:$MEDIA_IPAD) {
+     padding: 23px 5px;
+  }
+}
+
+.header-ferramentas-link {
+  color: $COR_SECUNDARIA;
+  display: inline-block;
+  margin-left: 30px;
+  transition: all 400ms;
+
+  &.logout {
+    cursor: pointer;
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+  i {
+    font-size: 16px;
+    margin-right: 5px;
+  }
+
+  span {
+    color: #000000;
+  }
+
+  @media (max-width:$MEDIA_IPAD) {
+    span{
+      display: none;
+    }
+  }
+}
+
+.header-perfil {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.header-select-coin {
+  position: relative;
+
+  .icon-coins{
+    color: $COR_PRINCIPAL;
+  }
+
+  select {
+    appearance: none;
+    background: url('../assets/images/down-arrow.png');
+    background-position: calc(100% - 10px);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    color: #000000 !important;
+    margin-left: 10px;
+    width: 60px;
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+.header-tax-coins{
+  top: 0;
+  left: 200px;
+  position: absolute;
+  border-top: 3px solid $COR_PRINCIPAL;
+  padding: 25px 10px;
+
+  ul{
+    padding: 0;
+    margin: 0;
+
+    li{
+      display: inline-block;
+      border-right: 1px solid #cccccc;
+      padding-right: 10px;
+      padding-left: 0;
+      margin-right: 10px;
+
+      span{
+        font-weight: bold;
+      }
+
+      &:last-child{
+        border-right: 0;
+        margin-right: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  @media(max-width: 800px){
+    display: none;
+  }
+}
+
+.photo-avatar{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 7px;
+  // border:1px $COR_PRINCIPAL solid;
+}

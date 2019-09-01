@@ -1,0 +1,53 @@
+.dashboard-box {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  min-height: 200px;
+  padding: 20px;
+}
+
+.dashboard-subtitle{
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 0 20px;
+  border-left: 3px solid $COR_PRINCIPAL;
+  padding: 0 0 0 10px;
+  text-transform: uppercase;
+}
+
+.dashboard-description{
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.dashboard-saldo{
+  background: $COR_SUCCESS;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 -20px -20px -20px;
+  border-radius: 0 0 10px 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+  span{
+    font-size: 18px;
+  }
+}
+
+.dashboard-moeda{
+  img{
+    width: 16px;
+  }
+}
+
+// Autenticação 2FA
+.modal-2fa-code{
+  background: #EEEEEE;
+  padding: 10px 30px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin: 0 auto 20px auto;
+}

@@ -1,0 +1,38 @@
+@import // Abstracts
+'abstracts/variables',
+'abstracts/colors',
+
+// Base
+'base/reset',
+'base/typography',
+'base/grids',
+'base/global',
+
+// Includes
+'includes/header',
+'includes/menu',
+
+// Components
+'components/form/form',
+'components/form/validation',
+'components/form/buttons',
+'components/form/radio',
+'components/form/checkbox',
+'components/form/validation',
+'components/modal',
+'components/dropdown',
+'components/badge',
+'components/alerts',
+'components/tables',
+'components/loader',
+'components/breadcrumb',
+
+// Pages
+'pages/home/home',
+'pages/login/login',
+'pages/perfil/perfil',
+'pages/create-account/create-account',
+'pages/dashboard/dashboard',
+'pages/dashboard/depositar-sacar',
+'pages/meu-extrato/meu-extrato',
+'pages/contact/contact';

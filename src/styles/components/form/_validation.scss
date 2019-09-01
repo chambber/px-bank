@@ -1,0 +1,21 @@
+.text-validation {
+  margin-top: 5px;
+  color: $COR_DANGER;
+  font: 10px 'Roboto';
+  line-height: 13px;
+  padding-left: 20px;
+  position: absolute;
+  text-transform: uppercase;
+  transition: all 400ms;
+}
+
+.text-validation-success {
+  margin-top: 5px;
+  color: $COR_SUCCESS;
+  font: 10px 'Roboto';
+  line-height: 13px;
+  padding-left: 20px;
+  position: absolute;
+  text-transform: uppercase;
+  transition: all 400ms;
+}

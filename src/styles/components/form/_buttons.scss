@@ -1,0 +1,181 @@
+button {
+  &:disabled {
+    cursor: initial;
+    opacity: .5;
+
+    &:hover:enabled {
+      box-shadow: none;
+    }
+  }
+  &:hover {
+    &:disabled {
+      cursor: initial;
+      background: $COR_PRINCIPAL !important;
+      border-color: $COR_PRINCIPAL !important;
+    }
+  }
+}
+
+// Button
+%btn,
+.btn {
+  background-color: $COR_PRINCIPAL;
+  border: 1px solid $COR_PRINCIPAL;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  transition: all 400ms;
+  z-index: 9999 !important;
+
+  & + .btn {
+    margin-left: 10px;
+  }
+
+  &:hover:enabled {
+    background: transparent;
+    color: #000000;
+  }
+
+  &.disabled{
+    cursor: initial;
+    background: $COR_PRINCIPAL !important;
+    border-color: $COR_PRINCIPAL !important;
+    opacity: .5;
+
+    &:hover{
+      color: #ffffff;
+    }
+  }
+}
+
+.btn-back {
+  @extend %btn;
+  background: transparent;
+  border: 1px solid $COR_PRINCIPAL;
+  color: $COR_PRINCIPAL;
+  font-size: 12px;
+  padding: 10px 20px;
+
+  &:hover:enabled {
+    box-shadow: none;
+  }
+}
+
+// Group
+.buttons-group {
+  display: block;
+  padding: 15px 0;
+}
+
+// Colors
+.btn-info {
+  background-color: $COR_INFO;
+  border-color: $COR_INFO;
+  color: #FFFFFF;
+}
+
+.btn-danger {
+  background-color: $COR_DANGER;
+  border-color: $COR_DANGER;
+  color: #FFFFFF;
+}
+
+.btn-danger-outline {
+  background-color: transparent;
+  border-color: $COR_DANGER;
+  color: $COR_DANGER;
+}
+
+.btn-success {
+  background-color: $COR_SUCCESS;
+  border-color: $COR_SUCCESS;
+  color: #FFFFFF;
+}
+
+.btn-default {
+  background-color: #696969;
+  border-color: #696969;
+  color: #FFFFFF;
+}
+
+.btn-white {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+// Outiline
+.btn-outilne {
+  background-color: transparent;
+  color: #000000;
+
+  &:hover:enabled {
+    opacity: .4;
+  }
+}
+
+// Loading
+
+.btn-loading {
+  position: relative;
+  cursor: default;
+  text-shadow: none !important;
+  color: transparent !important;
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0s linear, opacity 0.1s ease;
+}
+
+.btn-loading:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
+  border-radius: 500rem;
+  border: 0.2em solid rgba(0, 0, 0, 0.15);
+}
+
+.btn-loading:after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  margin: -0.64285714em 0em 0em -0.64285714em;
+  width: 1.28571429em;
+  height: 1.28571429em;
+  animation: button-spin 0.6s linear;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-color: #FFFFFF transparent transparent;
+  border-style: solid;
+  border-width: 0.2em;
+  box-shadow: 0px 0px 0px 1px transparent;
+}
+
+@-webkit-keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

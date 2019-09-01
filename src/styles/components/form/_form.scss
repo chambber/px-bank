@@ -1,0 +1,141 @@
+// Reset
+button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+
+    &:focus,
+    &:hover {
+        outline: none;
+    }
+}
+
+input{
+  &:disabled {
+    opacity: .5;
+  }
+}
+
+select {
+  &:disabled {
+    opacity: .5;
+  }
+
+  option {
+      color: #000000 !important;
+  }
+}
+
+// Form
+.form-group{
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 18px;
+
+    .checkbox {
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        padding-left: 20px;
+        margin-bottom: 8px;
+    }
+
+    select {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      padding-left: 20px;
+      margin-bottom: 8px;
+  }
+
+    &.required {
+        label {
+            &:before {
+                content: '*';
+                color: red;
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .input-icon {
+        font-size: 15px;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+    }
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    border: 1px solid #cccccc;
+    border-radius: 30px;
+    display: block;
+    font-size: 13px;
+    height: 38px;
+    padding: 0 10px 0 20px;
+    transition: border-color 400ms;
+    width: 100%;
+
+    &.error {
+      border-color: #e0b4b4;
+      background-color: #e0b4b4;
+    }
+
+    &:focus {
+        border-color: $COR_PRINCIPAL;
+        outline: none;
+    }
+
+    &::placeholder {
+        opacity: .4;
+        font-size: 11px;
+        font-style: italic;
+    }
+
+    &[type="password"]{
+        padding: 0 40px 0 25px !important;
+    }
+
+}
+
+.form-search {
+    background: #eeeeee;
+    border-radius: 30px;
+    font-size: 12px;
+    padding: 8px 25px 8px 20px;
+
+    &:focus {
+        border-color: $COR_PRINCIPAL;
+        outline: none;
+    }
+}
+
+.form-textarea {
+    height: 100%;
+    padding: 10px;
+}
+
+.form-select {
+    appearance: none;
+    background: url('../assets/images/down-arrow.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px);
+    background-size: 15px;
+    option {
+        color: black
+    }
+}
+
+.form-margin-top{
+  margin-top: 26px;
+}

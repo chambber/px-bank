@@ -1,0 +1,83 @@
+/*! sanitize.css v4.1.0 | CC0 License | github.com/jonathantneal/sanitize.css */
+main,
+section {
+  display: block
+}
+
+*,
+:after,
+:before {
+  background-repeat: no-repeat;
+  box-sizing: inherit
+}
+
+html {
+  cursor: default;
+  font-family: sans-serif;
+  line-height: 1.5;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased
+}
+
+body {
+  margin: 0
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  vertical-align: middle
+}
+
+html {
+  box-sizing: border-box
+}
+
+body {
+  font: 14px Roboto;
+  background: #eee;
+  color: #000;
+  overflow-x: hidden
+}
+
+.maintenance {
+  background: url(maintenance.jpg) no-repeat 50%;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  width: 100%
+}
+
+.maintenance-logo {
+  left: 50%;
+  max-width: 200px;
+  position: absolute;
+  top: -80px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
+}
+
+.maintenance-content {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center
+}
+
+.maintenance-text {
+  color: #fff;
+  font-size: 37px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-weight: 700
+}
+
+.maintenance-text span {
+  display: block;
+  font-weight: 100
+}

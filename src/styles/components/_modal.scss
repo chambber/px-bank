@@ -1,0 +1,155 @@
+.modal {
+  background: rgba(0, 0, 0, .8);
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+}
+
+.modal-wrapper {
+  left: 50%;
+  min-width: 40%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+  @media(max-width: $MEDIA_IPAD) {
+    width: 90% !important;
+  }
+
+  .modal-2fa & {
+    width: 50%;
+
+    .btn {
+      min-width: 150px;
+    }
+  }
+
+  .modal-detalhe-extrato &{
+    width: 40%;
+    text-align: left;
+  }
+
+  .modal-google-authenticator &{
+    width: 40%;
+
+    label {
+      color: #000;
+
+    }
+    .form-input{
+      width: 200px;
+      margin: 10px auto 0 auto;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .modal-capcha &{
+    width: 10%;
+    background: white ;
+    border-radius: 0px !important;
+    .form-input{
+      width: 200px;
+      margin: 10px auto 0 auto;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+  }
+
+}
+
+
+.modal-content {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+.modal-close-button {
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  text-transform: uppercase;
+  top: -10px;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.modal-header {
+  background: $COR_PRINCIPAL;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+}
+
+.modal-title {
+  color: $COR_SECUNDARIA;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+.modal-subtitle {
+  color: #1f1f1f;
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.modal-body {
+  background: #FFFFFF;
+  border-radius: 10px 10px 0 0;
+  color: #000000;
+  padding: 20px;
+
+  p {
+    font-size: 14px;
+  }
+
+  span + span {
+    margin-left: 10px;
+  }
+
+  .icon-success {
+    color: $COR_PRINCIPAL;
+    font-size: 40px;
+    display: block;
+    margin: 10px 0 20px 0;
+  }
+
+}
+
+.modal-confirmation {
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 10px -20px -20px -20px;
+  padding: 10px 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.modal-confirmation-attention {
+  background: $COR_DANGER;
+}
+
+.modal-confirmation-ok {
+  background: $COR_PRINCIPAL;
+  font-size: 16px;
+}
+
+.modal-footer {
+  background: #EEEEEE;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+}
