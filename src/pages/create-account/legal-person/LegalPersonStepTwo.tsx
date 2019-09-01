@@ -26,17 +26,14 @@ interface CustomerForm {
   state: string;
   city: string;
   phoneNumber: string;
-  origin: string;
   ppe: boolean | undefined;
   terms: boolean | undefined;
-  otherOrigin?: string;
 }
 
 const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
   const { data: customer, loading } = useSelector((state: ApplicationState) => state.customer);
   const dispatch = useDispatch();
 
-  const [selectedOrigin, setSelectedOrigin] = useState('');
   const [initialCustomer, setInitialCustomer] = useState<CustomerForm>();
 
   useEffect(() => {
@@ -45,7 +42,6 @@ const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
       state: customer.address.state,
       city: customer.address.city,
       phoneNumber: customer.contactInfo.phoneNumber.number,
-      origin: customer.origin,
       ppe: customer.politicallyExposedPerson,
       terms: undefined,
     });
@@ -59,12 +55,6 @@ const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
       .string()
       .required()
       .matches(/^\(\d\d\) \d \d\d\d\d-\d\d\d\d$/),
-    origin: yup.string().required(),
-    otherOrigin: yup.string().when('origin', {
-      is: value => value && value === 'other',
-      then: yup.string().required(),
-      otherwise: yup.string().notRequired(),
-    }),
     ppe: yup.boolean().required(),
     terms: yup.boolean().required(),
   });
@@ -99,8 +89,6 @@ const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
         },
       },
       politicallyExposedPerson: data.ppe,
-      origin: data.origin,
-      otherOrigin: data.otherOrigin ? data.otherOrigin : undefined,
     };
 
     // Caso PPE, o cadastro não deve prosseguir
@@ -120,11 +108,6 @@ const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
     const updatedCustomer = save(values as CustomerForm);
     dispatch(saveCustomer(updatedCustomer));
     prevStep();
-  };
-
-  const handleOriginChange = (e: any) => {
-    setSelectedOrigin(e.target.value);
-    handleChange(e);
   };
 
   const renderState = () => (values.country === 'BRA' ? (
@@ -252,51 +235,6 @@ const LegalPersonStepTwo: React.FC<OwnProps> = ({ prevStep }: OwnProps) => {
                 />
                 {errors.phoneNumber && (
                   <span className="text-validation">Please enter a cell phone.</span>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="col-group">
-            <div className="col-12">
-              <div className="form-group">
-                <label htmlFor="">How did you hear about us?</label>
-                <select
-                  value={values.origin}
-                  className="form-select"
-                  name="origin"
-                  onChange={handleOriginChange}
-                >
-                  <option value="">Select</option>
-                  <option value="other">Others</option>
-                  <option value="tv">TV</option>
-                  <option value="event">Events</option>
-                  <option value="facebook">Facebook</option>
-                  <option value="google">Google</option>
-                </select>
-                {errors.origin && (
-                  <span className="text-validation">
-                    Please let me know how you heard about us.
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="col-group" hidden={selectedOrigin !== 'other'}>
-            <div className="col-12">
-              <div className="form-group">
-                <label htmlFor="">Where?</label>
-                <Input
-                  defaultValue={values.otherOrigin}
-                  className="form-input"
-                  name="otherOrigin"
-                  placeholder="Indication, friends, etc"
-                  onChange={handleChange}
-                  type="text"
-                />
-                {errors.otherOrigin && (
-                  <span className="text-validation">
-                    Please tell the other way you heard about us.
-                  </span>
                 )}
               </div>
             </div>

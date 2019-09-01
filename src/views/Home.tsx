@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   const renderRegister = () =>
     account.id ? null : (
       <Link to="create-account" className="btn home-btn-create-account">
-        Register
+        Criar Conta
       </Link>
     );
 
@@ -31,24 +31,21 @@ const Home: React.FC = () => {
       <>
         <div className="dropdown">
           <Button className="btn dropdown-btn">
-            Hello, {account.displayName} <i className="fas fa-sort-down down" />
+            Olá, {account.displayName} <i className="fas fa-sort-down down" />
           </Button>
           <div className="dropdown-content">
             <Link to="dashboard">
-              <i className="fas fa-tachometer-alt" /> Dashboard
-            </Link>
-            <Link to="my-account">
-              <i className="fas fa-user" /> My Account
+              <i className="fas fa-tachometer-alt" /> Painel
             </Link>
             <Link to="login" onClick={handleClick}>
-              <i className="fas fa-power-off" /> Logout
+              <i className="fas fa-power-off" /> Sair
             </Link>
           </div>
         </div>
       </>
     ) : (
         <Link to="login" className="btn home-login">
-          Log in
+          Entrar
       </Link>
       );
 
@@ -57,10 +54,10 @@ const Home: React.FC = () => {
       {renderLogin()}
 
       <div className="home-content">
-        <img src={Logo} alt="Logo FT Corpex" className="home-logo" />
+        <img src={Logo} alt="Logo PX Investimentos" className="home-logo" />
         <h1 className="home-title">
-          YOUR NEW CHOICE FOR YOUR CRYPTO CURRENCIES
-          <span>NEGOTIATE WITH SECURITY ENVIRONMENT OF WHEREVER YOU ARE</span>
+          Conheça o Portal de Clientes da PX.
+          <span>Uma nova experiência criada para um novo jeito de investir</span>
         </h1>
         {renderRegister()}
         {/* <Link to="create-account" className="btn home-btn-create-account">

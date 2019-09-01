@@ -225,7 +225,7 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
   const renderSelect = () => {
     switch (values.choosenIdField) {
       case 'cpf':
-        return fieldComponent('Enter your CPF! *only for Brazilian customers', [
+        return fieldComponent('Iinsira seu CPF!', [
           /\d/,
           /\d/,
           /\d/,
@@ -243,28 +243,13 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
         ]);
 
       case 'passport':
-        return fieldComponent('Enter your Passport ID!');
+        return fieldComponent('Insira seu Passaporte!');
 
       case 'idCard':
-        return fieldComponent('Enter your ID Card!');
-
-      case 'securityId':
-        return fieldComponent('Enter your security Id!', [
-          /\d/,
-          /\d/,
-          /\d/,
-          '.',
-          /\d/,
-          /\d/,
-          '-',
-          /\d/,
-          /\d/,
-          /\d/,
-          /\d/
-        ]);
+        return fieldComponent('Insira seu RG!');
 
       case 'driverLicence':
-        return fieldComponent("Enter your Driver's Licence!");
+        return fieldComponent("Insira sua CNH!");
 
       default:
         return false;
@@ -289,10 +274,10 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
     <Container>
       <ul className="create-account-steps">
         <li className="create-account-steps-item is-active">
-          <span>step 1</span>
+          <span>passo 1</span>
         </li>
         <li className="create-account-steps-item">
-          <span>step 2</span>
+          <span>passo 2</span>
         </li>
       </ul>
 
@@ -301,18 +286,18 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
           <div className="col-group">
             <div className="col-12">
               <div className="form-group">
-                <label htmlFor="">Full name:</label>
+                <label htmlFor="">Nome Completo:</label>
                 <Input
                   className="form-input"
                   defaultValue={initialCustomer.name}
                   name="name"
                   onChange={handleChange}
-                  placeholder="Enter Full Name"
+                  placeholder="Nome Completo"
                   type="text"
                 />
                 {errors.name && (
                   <span className="text-validation">
-                    PLEASE ENTER A VALID NAME.
+                    Por favor, insira seu nome completo.
                   </span>
                 )}
               </div>
@@ -327,11 +312,10 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
                   name="choosenIdField"
                   value={values.choosenIdField}
                 >
-                  <option value="passport">Passport</option>
+                  <option value="passport">Passaporte</option>
                   <option value="cpf">CPF</option>
-                  <option value="securityId">Security ID</option>
-                  <option value="idCard">ID Card</option>
-                  <option value="driverLicence">Driver&apos;s Licence</option>
+                  <option value="idCard">RG</option>
+                  <option value="driverLicence">CNH</option>
                 </select>
                 {renderSelect()}
                 {renderErrorSelect()}
@@ -339,7 +323,7 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
             </div>
             <div className="col-6">
               <div className="form-group">
-                <label htmlFor="">Date of birth:</label>
+                <label htmlFor="">Data de Nascimento:</label>
                 <Input
                   className="form-input"
                   defaultValue={initialCustomer.birthDate}
@@ -362,12 +346,12 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
                 />
                 {errors.birthDate && (
                   <span className="text-validation">
-                    Please enter a valid Birthdate.
+                    Por favor, insira uma data de nascimento válida.
                   </span>
                 )}
                 {!errors.birthDate && !isOfAge && (
                   <span className="text-validation">
-                    In order to register you must be over 18 years old.
+                    Para se registrar, você precisa ter mais que 18 anos.
                   </span>
                 )}
               </div>
@@ -382,19 +366,19 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
                   defaultValue={initialCustomer.email}
                   name="email"
                   onChange={handleChange}
-                  placeholder="Enter e-mail"
+                  placeholder="Insira seu e-mail"
                   type="text"
                 />
                 {errors.email &&
                   (errors.email.includes('valid') ||
                     errors.email.includes('required')) && (
                     <span className="text-validation">
-                      Please, type a valid email.
+                      Por favor, insira seu e-mail.
                     </span>
                   )}
                 {errors.email && errors.email.includes('registered') && (
                   <Link to="/login" className="text-validation">
-                    Email already registered, click here to login.
+                    Email já cadastrado, clique aqui para se logar.
                   </Link>
                 )}
               </div>
@@ -403,13 +387,13 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
           <div className="col-group">
             <div className="col-6">
               <div className="form-group">
-                <label htmlFor="">Password:</label>
+                <label htmlFor="">Senha:</label>
                 <Input
                   className="form-input"
                   defaultValue={initialCustomer.password}
                   name="password"
                   onChange={handleChange}
-                  placeholder="Enter password"
+                  placeholder="Insira sua senha"
                   type={showPassword ? 'text' : 'password'}
                 />
                 <span
@@ -428,22 +412,22 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
                 </span>
                 {errors.password && (
                   <span className="text-validation">
-                    The password must be between 8 and 25 characters and at
-                    least one uppercase character, a lowercase character, and a
-                    number.
+                    A senha precisa estar entre 8 e 25 caracteres e ter
+                    ao menos uma letra maiúscula, uma letra minúscula e
+                    um número.
                   </span>
                 )}
               </div>
             </div>
             <div className="col-6">
               <div className="form-group">
-                <label htmlFor="">Confirm Password:</label>
+                <label htmlFor="">Confirmar Senha:</label>
                 <Input
                   className="form-input"
                   defaultValue={initialCustomer.password}
                   name="confirmPassword"
                   onChange={handleChange}
-                  placeholder="Confirm password"
+                  placeholder="Confirmar senha"
                   type={showConfirmPassword ? 'text' : 'password'}
                 />
                 <span
@@ -462,7 +446,7 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
                 </span>
                 {errors.confirmPassword && (
                   <span className="text-validation">
-                    Passwords are not identical.
+                    As senhas não são idênticas.
                   </span>
                 )}
               </div>
@@ -471,12 +455,12 @@ const PhysicalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
           <div className="col-group">
             <div className="col-6">
               <div className="create-account-login-link">
-                Already registered? <Link to="/login">Log in</Link>.
+                Já é cliente? <Link to="/login">Faça login</Link>.
               </div>
             </div>
             <div className="col-6 text-right">
               <Button input="submit" className="btn">
-                Continue
+                Continuar
               </Button>
             </div>
           </div>

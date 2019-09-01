@@ -51,7 +51,6 @@ const INITIAL_CUSTOMER: Customer = {
   companyInfo: INITIAL_COMPANY_INFO,
   politicallyExposedPerson: undefined,
   password: '',
-  origin: ''
 };
 
 const INITIAL_STATE: CustomerState = {

@@ -39,7 +39,5 @@ export interface Customer {
   personalInfo: PersonalInfo;
   companyInfo: CompanyInfo;
   politicallyExposedPerson: boolean | undefined;
-  origin: string;
   password: string;
-  otherOrigin?: string;
 }

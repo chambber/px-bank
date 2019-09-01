@@ -15,7 +15,6 @@ import {
 } from '../store/ducks/login/actions';
 import { Login as LoginModel, ApplicationState } from '../models';
 import { logout } from '../store/ducks/account/actions';
-import Modal2FA from '../pages/auth/Modal2FA';
 import { DetectorDevice } from '../helpers/deviceDetector';
 
 const Login: React.FC = (props: any) => {
@@ -98,24 +97,11 @@ const Login: React.FC = (props: any) => {
     if (value) setCaptcha(value);
   };
 
-  const onModal2FAclose = () => {
-    dispatch(logout());
-    setShow2FA(false);
-  };
-
   return (
     <>
-      {login.data.id && !login.data.authenticated && show2FA && (
-        <Modal2FA
-          isLogin={true}
-          onTokenValid={onTokenValid}
-          close={onModal2FAclose}
-        />
-      )}
-
       <section className="login">
         <div className="login-content">
-          <img src={Logo} alt="Logo FT Corpex" className="login-logo" />
+          <img src={Logo} alt="Logo PX Investimentos" className="login-logo" />
 
           <form onSubmit={handleSubmit(handleLogin)}>
             <div className="form-group">
@@ -129,12 +115,12 @@ const Login: React.FC = (props: any) => {
               />
               {errors.email && (
                 <span className="text-validation" style={{ left: 0, right: 0 }}>
-                  Please, enter your e-mail.
+                  Por favor, insira seu e-mail
                 </span>
               )}
             </div>
             <div className="form-group">
-              <label>Password</label>
+              <label>Senha</label>
               <Input
                 className="form-input"
                 name="password"
@@ -157,14 +143,14 @@ const Login: React.FC = (props: any) => {
               </span>
               {errors.password && (
                 <span className="text-validation" style={{ left: 0, right: 0 }}>
-                  Please, enter your password.
+                  Por favor, insira sua senha.
                 </span>
               )}
             </div>
 
             <div className="form-group">
               <Link to="/reset-password" className="login-forgot-password">
-                Forgot password?
+                Esqueceu a senha?
               </Link>
               <div className="login-recaptcha">
                 <ReCAPTCHA
@@ -182,33 +168,23 @@ const Login: React.FC = (props: any) => {
                 type="submit"
                 disabled={!captcha}
               >
-                Log In
+                Entrar
               </Button>
 
               {login.error && (
                 <span className="text-validation" style={{ left: 0, right: 0 }}>
-                  Incorrect user and/or password(s).
+                  Usuário e/ou senha incorretos.
                 </span>
               )}
               <Link to="/create-account" className="login-register">
-                Not on FT Corpex yet? <span>Register</span>
+                Não é cliente ainda? <span>Cadastre-se</span>
               </Link>
             </div>
           </form>
         </div>
         <Link to="/" className="login-btn-back">
-          Back
+          Voltar
         </Link>
-
-        {login.onboarding.id && (
-          <span
-            onClick={sendEmailConfirmation}
-            className="login-btn-ativar-conta"
-          >
-            Your account has not been activated yet, <span>click here</span> to
-            resend the confirmation mail.
-          </span>
-        )}
       </section>
     </>
   );

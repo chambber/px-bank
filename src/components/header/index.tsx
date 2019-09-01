@@ -21,11 +21,7 @@ import { setRate } from '../../store/ducks/rates/actions';
 import { checkTermsValidate } from '../../store/ducks/account/actions';
 
 import { ApplicationState } from '../../models';
-import { useExchangeRate } from '../../hooks';
-import { formatStringToCurrency } from '../../helpers/formatter';
-import ModalTermsValidate from '../../pages/dashboard/ModalTermsValidate';
-import { apiOsiris, apiSet } from '../../services/api';
-import * as user from '../../services/auth';
+import { apiSet } from '../../services/api';
 
 const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
   const dispatch = useDispatch();
@@ -33,7 +29,6 @@ const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
     (state: ApplicationState) => ({ ...state.account, ...state.rates })
   );
 
-  const exchangeRates = useExchangeRate(['BTC']);
   const [photoAvatar, setPhotoAvatar] = useState();
 
   useEffect(() => {
@@ -57,10 +52,6 @@ const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
     dispatch(setRate(e.target.value));
   };
 
-  const submitTermsValidate = () => {
-    dispatch(checkTermsValidate(true, account));
-  };
-
   const getPhoto = async () => {
     const { id } = account;
     if (!id) return;
@@ -74,7 +65,7 @@ const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
       <header className="header">
         <div className="header-logo">
           <Link to="dashboard">
-            <img src={Logo} alt="FT Corpex" />
+            <img src={Logo} alt="PX Investimentos" />
           </Link>
         </div>
         <Button className="header-menu-toggle" onClick={toggleMenu}>
@@ -91,42 +82,7 @@ const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
           </div>
         } */}
 
-        {Object.keys(exchangeRates).length > 0 && (
-          <div className="header-tax-coins">
-            <ul>
-              <li>
-                <span>USD</span>{' '}
-                {currency(
-                  new Big(exchangeRates['BTC']['USD'])
-                    .div(new Big(100))
-                    .toFixed(2),
-                  { decimal: ',', separator: '.' }
-                ).format()}
-              </li>
-              <li>
-                <span>KRW</span>{' '}
-                {currency(
-                  new Big(exchangeRates['BTC']['KRW'])
-                    .div(new Big(100))
-                    .toFixed(2),
-                  { decimal: ',', separator: '.' }
-                ).format()}
-              </li>
-            </ul>
-          </div>
-        )}
-        {!account.termsValidate && (
-          <ModalTermsValidate submitTermsValidate={submitTermsValidate} />
-        )}
         <div className="header-ferramentas">
-          <div className="header-ferramentas-link header-select-coin">
-            <i className="fas fa-coins icon-coins" />
-            <select value={selectedRate} name="" id="" onChange={onRateChange}>
-              <option value="USD">USD</option>
-              <option value="KRW">KRW</option>
-            </select>
-          </div>
-
           <Link to="/my-account" className="header-ferramentas-link">
             {!photoAvatar ? (
               <i className="fas fa-user"></i>

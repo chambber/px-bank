@@ -148,10 +148,10 @@ const LegalPersonStepOne: React.FC<OwnProps> = ({ nextStep }: OwnProps) => {
     <Container>
       <ul className="create-account-steps">
         <li className="create-account-steps-item is-active">
-          <span>Step 1</span>
+          <span>Passo 1</span>
         </li>
         <li className="create-account-steps-item">
-          <span>Step 2</span>
+          <span>Passo 2</span>
         </li>
       </ul>
 

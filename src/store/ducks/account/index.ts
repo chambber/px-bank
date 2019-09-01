@@ -56,7 +56,6 @@ const INITIAL_ACCOUNT: Account = {
   companyInfo: INITIAL_COMPANY_INFO,
   politicallyExposedPerson: undefined,
   password: '',
-  origin: ''
 };
 
 const INITIAL_STATE: AccountState = {

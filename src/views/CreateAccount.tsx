@@ -61,19 +61,14 @@ const CreateAccount: React.FC = (props: any) => {
 
   return (
     <>
-      {customerCreated && (
-        <Modal title="Account Successfully created!" close={closeModal}>
-          <p>To activate your account click the link sent in your email</p>
-        </Modal>
-      )}
       <section className="create-account">
         <div className="create-account-columns">
           <div className="create-account-column-left">
             <div className="create-account-left-content">
-              <img src={Logo} className="create-account-logo" alt="FT Corpex" />
+              <img src={Logo} className="create-account-logo" alt="PX Investimentos" />
               <h3 className="create-account-title">
-                Create your
-                <span>free account</span>
+                Crie uma
+                <span>conta gratuita</span>
               </h3>
             </div>
           </div>
@@ -84,13 +79,14 @@ const CreateAccount: React.FC = (props: any) => {
                   onClick={showPessoaFisica}
                   className="create-account-tabs-link is-active"
                 >
-                  Individual
+                  Pessoa Física
                 </Button>
                 <Button
                   onClick={showPessoaJurica}
                   className="create-account-tabs-link"
+                  disabled
                 >
-                  Corporate
+                  Pessoa Jurídica
                 </Button>
               </div>
               <div className="create-account-form">{pessoa()}</div>
