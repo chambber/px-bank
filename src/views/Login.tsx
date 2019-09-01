@@ -36,15 +36,6 @@ const Login: React.FC = (props: any) => {
   }, [account.isLoggedIn, props.history]);
 
   useEffect(() => {
-    if (login.data.status === false) {
-      props.history.push(`/device-info/${login.data.id}`);
-    }
-    if (login.data.id && !login.data.authenticated) {
-      setShow2FA(true);
-    }
-  }, [login.data.id, login.data.authenticated, props.history]);
-
-  useEffect(() => {
     setInitialLogin({
       email: '',
       password: ''

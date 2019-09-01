@@ -22,6 +22,14 @@
   }
 }
 
+.header-logo img {
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
 // Menu Button
 .header-menu-toggle {
   color: #000000;

@@ -37,4 +37,9 @@ apiOsiris.interceptors.request.use(config => {
   return config;
 });
 
-export { apiSet, apiIsis, apiOsiris };
+const apiSus = axios.create({
+  baseURL: process.env.REACT_APP_SUS_BASE_URL
+});
+
+
+export { apiSet, apiIsis, apiOsiris, apiSus };

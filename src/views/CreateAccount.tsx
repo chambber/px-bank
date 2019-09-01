@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 import Logo from '../assets/images/logo-ft-corpex.png';
@@ -14,6 +14,12 @@ const CreateAccount: React.FC = (props: any) => {
     (state: ApplicationState) => state.customer.created
   );
   const [tipoPessoa, setTipoPessoa] = useState(1);
+
+  useEffect(() => {
+    if (customerCreated) {
+      props.history.push('/dashboard');
+    }
+  }, [customerCreated]);
 
   const pessoa = () => {
     switch (tipoPessoa) {

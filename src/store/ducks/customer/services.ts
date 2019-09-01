@@ -1,6 +1,6 @@
 import querystring from 'querystring';
 
-import { apiIsis, apiSet } from '../../../services/api';
+import { apiIsis, apiSet, apiSus } from '../../../services/api';
 import { Customer } from '../../../models';
 import { getUser } from '../../../services/auth';
 
@@ -42,3 +42,17 @@ export const deactivate = async () => {
     return result.data;
   }
 };
+
+export const getProfile = async (cpf: string) => {
+  try {
+    const profile = await apiSus
+      .get(`/customer/${cpf}`);
+    return profile.data.investmentProfile.name;
+  } catch (error) {
+    const message = error.response
+      ? error.response.data.message
+      : error.message;
+    throw Error(message);
+  }
+};
+

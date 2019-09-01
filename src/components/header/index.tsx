@@ -8,8 +8,6 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'semantic-ui-react';
-import currency from 'currency.js';
-import Big from 'big.js';
 
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo-ft-corpex-header.png';
@@ -17,16 +15,14 @@ import Logo from '../../assets/images/logo-ft-corpex-header.png';
 import { Menu } from './menu';
 
 import { logout } from '../../store/ducks/account/actions';
-import { setRate } from '../../store/ducks/rates/actions';
-import { checkTermsValidate } from '../../store/ducks/account/actions';
 
 import { ApplicationState } from '../../models';
 import { apiSet } from '../../services/api';
 
 const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
   const dispatch = useDispatch();
-  const { data: account, isLoggedIn, selected: selectedRate } = useSelector(
-    (state: ApplicationState) => ({ ...state.account, ...state.rates })
+  const { data: account, isLoggedIn } = useSelector(
+    (state: ApplicationState) => ({ ...state.account })
   );
 
   const [photoAvatar, setPhotoAvatar] = useState();
@@ -46,10 +42,6 @@ const Header: FC<ComponentPropsWithoutRef<ElementType>> = ({ history }) => {
   const toggleMenu = () => {
     const menu = document.getElementsByClassName('nav')[0];
     menu.classList.toggle('is-active');
-  };
-
-  const onRateChange = (e: any) => {
-    dispatch(setRate(e.target.value));
   };
 
   const getPhoto = async () => {
